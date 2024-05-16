@@ -1,3 +1,0 @@
-1.db.contratos.count()
-2.db.contratos.count({tipoprocedimiento:"Ajuste Direto Regime Geral"})
-3.db.contratos.distinct("entidadecomunicante",{}).sort()
