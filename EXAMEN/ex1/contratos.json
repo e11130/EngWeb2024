@@ -1,0 +1,28 @@
+[
+    {
+        "idcontrato" : "a",
+        "nAnuncio": "b",
+        "tipoprocedimiento" : "B",
+        "objetoContrato" : "b",
+        "dataPublicacao" : "14/08/2022",
+        "dataCelebracaoContrato" : "14/08/2022",
+        "precoContratual" : 111,
+        "prazoExecucao" : 1111,
+        "NIPC_entidade_comunicante" : "iuhihui",
+        "entidade_comunicante" : "OIJJOIJ",
+        "fundamentacao" :"IOJoij"
+    },
+    {
+        "idcontrato" : "b",
+        "nAnuncio": "UHihuihi",
+        "tipoprocedimiento" : "Huuihuu",
+        "objetoContrato" : "HUhiuiu",
+        "dataPublicacao" : "14/03/2022",
+        "dataCelebracaoContrato" : "13/03/2020",
+        "precoContratual" : 111,
+        "prazoExecucao" : 111,
+        "NIPC_entidade_comunicante" : 111,
+        "entidade_comunicante" : "klk",
+        "fundamentacao" :"klk"
+    }
+]
