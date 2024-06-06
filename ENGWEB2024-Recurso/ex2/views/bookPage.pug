@@ -1,0 +1,54 @@
+extends layout
+block content
+    .w3-card-4
+            header.w3-container.w3-teal
+                h1 Book #{book.bookId}
+
+            .w3-container
+            .w3-ul.w3-card-4(style="width:100%")
+                    li
+                        b Id: 
+                        span= book.bookId
+                    li
+                        b Titulo: 
+                        span= book.title
+                    li
+                        b Series: 
+                        span= book.series
+                    li
+                        b Author: 
+                        span= book.author
+                    li
+                        b Description: 
+                        span= book.description
+                    li
+                        b language: 
+                        span= book.language
+                    li
+                        b isbn: 
+                        span= book.isbn
+                    li
+                        b genres: 
+                        span= book.genres
+                    li
+                        b characters: 
+                        span= book.characters
+                    li
+                        b bookFormat: 
+                        span= book.bookFormat
+                    li
+                        b pages: 
+                        span= book.pages
+                    li
+                        b publisher: 
+                        span= book.publisher
+                    li
+                        b Publish Date: 
+                        span= book.publishDate
+                
+
+            footer.w3-container.w3-teal
+                address
+                    span Gerado por galuno::RPCW2022 em #{date} - [
+                    a(href="/") Voltar
+                    span ]

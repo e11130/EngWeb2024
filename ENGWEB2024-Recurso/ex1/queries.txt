@@ -1,0 +1,79 @@
+1.
+db.livros.countDocuments({ "title": { $regex: /Love/i } }), 366
+2.
+db.livros.find({ "author": { $regex: /Austen/i } }, { "title": 1, "_id": 0 }).sort({ "title": 1 })
+[
+  { title: 'Emma' },
+  { title: 'Mansfield Park' },
+  { title: 'Northanger Abbey' },
+  { title: 'Persuasion' },
+  { title: 'Pride and Prejudice' },
+  { title: 'Pride and Prejudice and Zombies' },
+  { title: 'Pride and Prejudice and Zombies: The Graphic Novel' },
+  { title: 'Sense and Sensibility' },
+  { title: 'The Complete Novels' }
+]
+3.
+ db.livros.aggregate([ { $unwind: "$author" },{ $group: { _id: "$author", total: { $sum: 1 } } },{ $sort: { _id: 1 } }])
+[
+  { _id: ' #1-3)', total: 1 },
+  { _id: ' #4-5)', total: 1 },
+  { _id: ' (Goodreads Author)', total: 1 },
+  { _id: ' )', total: 1 },
+  { _id: ' A. Elizabeth Delany', total: 1 },
+  { _id: ' A. Poulin Jr. (Translator)', total: 1 },
+  { _id: ' A. Roger Merrill', total: 1 },
+  { _id: ' A. Vivanti Salmon (Translator)', total: 1 },
+  { _id: ' A.H.T. Levi (Introduction)', total: 1 },
+  { _id: ' A.J. Krailsheimer (Translator)', total: 1 },
+  { _id: ' A.L. Jackson (Goodreads Author)', total: 2 },
+  { _id: ' A.S. Byatt (Editor/Introduction)', total: 1 },
+  { _id: ' A.S. Byatt (Introduction)', total: 5 },
+  { _id: ' A.T. Hatto (Translator)', total: 2 },
+  { _id: ' A.V. Lebrón (translator)', total: 1 },
+  { _id: ' A.V. Miller (Translator)', total: 1 },
+  { _id: ' Aarno Peromies (Translator)', total: 1 },
+  { _id: ' Aaron Asher (Translator)', total: 2 },
+  { _id: ' Aaron Johnston (Goodreads Author)', total: 2 },
+  { _id: ' Aaron Leichter (Adapter)', total: 1 }
+]
+Type "it" for more
+livros> db.livros.aggregate([{ $group: { _id: "$author", total: { $sum: 1 } } },{ $sort: { _id: 1 } }])
+[
+  { _id: [ '50 Cent', ' Robert Greene (Goodreads Author)' ], total: 1 },
+  { _id: [ "A'Mera Frieman" ], total: 1 },
+  { _id: [ 'A. Kirk (Goodreads Author)', ' E. Kirk' ], total: 2 },
+  { _id: [ 'A. Lee Martinez (Goodreads Author)' ], total: 1 },
+  { _id: [ 'A. Meredith Walters (Goodreads Author)' ], total: 3 },
+  {
+    _id: [ 'A. Merritt', ' Robert Silverberg (Introduction)' ],
+    total: 1
+  },
+  { _id: [ 'A. Rose (Goodreads Author)' ], total: 1 },
+  { _id: [ 'A.A. Attanasio (Goodreads Author)' ], total: 1 },
+  { _id: [ 'A.A. Milne' ], total: 1 },
+  {
+    _id: [ 'A.A. Milne', ' Ernest H. Shepard (Illustrations)' ],
+    total: 3
+  },
+  {
+    _id: [ 'A.A. Milne', ' Ernest H. Shepard (Illustrator)' ],
+    total: 4
+  },
+  { _id: [ 'A.C. Bextor (Goodreads Author)' ], total: 1 },
+  { _id: [ 'A.C. Crispin' ], total: 1 },
+  { _id: [ 'A.C. Gaughen (Goodreads Author)' ], total: 1 },
+  { _id: [ 'A.C. Weisbecker' ], total: 1 },
+  { _id: [ 'A.D. Bloom' ], total: 1 },
+  {
+    _id: [
+      'A.D. Zoltan',
+      ' Zoltan Andrejkovics (Goodreads Author)',
+      ' Steven N. Nagy'
+    ],
+    total: 1
+  },
+  { _id: [ 'A.F. Knott (Goodreads Author)' ], total: 1 },
+  { _id: [ 'A.G. Howard (Goodreads Author)' ], total: 5 },
+  { _id: [ 'A.G. Riddle (Goodreads Author)' ], total: 2 }
+]
